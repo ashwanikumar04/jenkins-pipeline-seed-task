@@ -5,11 +5,12 @@ pipeline {
 agent any
 
 stages {
-    stage{
-         jobDsl targets: ['seed.dsl'].join('\n'),
-           removedJobAction: 'DELETE',
-           removedViewAction: 'DELETE'
-
+    stage('Create Jobs'){
+          steps {
+            jobDsl targets: ['seed.dsl'].join('\n'),
+            removedJobAction: 'DELETE',
+            removedViewAction: 'DELETE'
+        }
     }
 }
 }
