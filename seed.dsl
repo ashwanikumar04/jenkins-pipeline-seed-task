@@ -6,7 +6,27 @@ def delaySeconds = 30      // number of seconds to delay build start after a com
 
 pipelineJob("scripted-pipeline-job") {
     keepDependencies(false)
-    concurrentBuild(false)
+    quietPeriod(delaySeconds)
+    //triggers { cron('H 0 * * *') }
+    logRotator { numToKeep(builds2Keep); artifactNumToKeep(num2Keep) }
+
+    definition {
+        cpsScm {
+            lightweight(true)
+            scm {
+                git {
+                    remote {
+                        github("ashwanikumar04/jenkins-pipeline")
+                    }
+                    branches('*/master')
+                }
+            }
+        }
+    }
+}
+
+pipelineJob("scripted-pipeline-job1") {
+    keepDependencies(false)
     quietPeriod(delaySeconds)
     //triggers { cron('H 0 * * *') }
     logRotator { numToKeep(builds2Keep); artifactNumToKeep(num2Keep) }
