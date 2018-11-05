@@ -1,19 +1,13 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
 
-    // parameters {
-    //     booleanParam(name: "GO?", defaultValue: true,
-    //         description: "Dummy parameter to prevent running the job just by one click only.")
-    // }
+agent any
 
-    stages {
-        stage('Create All Jobs') {
-            steps {
-                jobDsl sandbox: true, removedJobAction: 'DISABLE', targets: """
-seed.dsl
-"""
+stages {
+    stage('Create Jobs'){
+          steps {
+                jobDsl targets: ['seed.dsl'].join('\n'), removedJobAction: 'DISABLE'
             }
         }
     }
