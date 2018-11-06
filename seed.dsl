@@ -45,3 +45,12 @@ pipelineJob("scripted-pipeline-job1") {
         }
     }
 }
+
+multibranchPipelineJob("scripted-multi-pipeline-job") {
+    branchSources {
+        github {
+            repoOwner('ashwanikumar04')
+            repository('jenkins-pipeline')
+        }
+    }
+}
