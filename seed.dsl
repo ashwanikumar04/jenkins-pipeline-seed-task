@@ -61,4 +61,14 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new1") {
             daysToKeep(10)
         }
     }
+
+    configure { project ->
+     project / 'sources' / 'data' / 'jenkins.branch.BranchSource'/ strategy(class: 'jenkins.branch.DefaultBranchPropertyStrategy') {
+        properties(class: 'java.util.Arrays$ArrayList') {
+            a(class: 'jenkins.branch.BranchProperty-array'){
+            'jenkins.branch.NoTriggerBranchProperty'()
+            }
+        }
+    }
+  }
 }
