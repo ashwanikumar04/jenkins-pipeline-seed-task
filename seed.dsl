@@ -46,7 +46,7 @@ pipelineJob("scripted-pipeline-job1") {
     }
 }
 
-multibranchPipelineJob("scripted-multi-pipeline-job-new") {
+multibranchPipelineJob("scripted-multi-pipeline-job-new1") {
     branchSources {
         github {
             repoOwner('ashwanikumar04')
