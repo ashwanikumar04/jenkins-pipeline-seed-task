@@ -55,7 +55,7 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new2") {
             
         }
     }
-    
+
     orphanedItemStrategy {
         discardOldItems {
             numToKeep(10)
@@ -70,7 +70,6 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new2") {
                 'jenkins.branch.NoTriggerBranchProperty'()
                 }
             }
-        }
     }
 
     triggers {
