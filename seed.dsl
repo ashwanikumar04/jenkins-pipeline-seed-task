@@ -52,6 +52,13 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new") {
             repoOwner('ashwanikumar04')
             repository('jenkins-pipeline')
             includes('develop release/* feature/*')
+            
+        }
+    }
+    orphanedItemStrategy {
+        discardOldItems {
+            numToKeep(10)
+            daysToKeep(10)
         }
     }
 }
