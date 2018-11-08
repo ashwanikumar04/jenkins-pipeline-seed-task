@@ -52,7 +52,6 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new2") {
             repoOwner('ashwanikumar04')
             repository('jenkins-pipeline')
             includes('develop release/* feature/*')
-            
         }
     }
 
@@ -70,10 +69,10 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new2") {
                 'jenkins.branch.NoTriggerBranchProperty'()
                 }
             }
+        }
     }
 
     triggers {
         periodic(24*60)
     }
   }
-}
