@@ -46,11 +46,12 @@ pipelineJob("scripted-pipeline-job1") {
     }
 }
 
-multibranchPipelineJob("scripted-multi-pipeline-job") {
+multibranchPipelineJob("scripted-multi-pipeline-job-new") {
     branchSources {
         github {
             repoOwner('ashwanikumar04')
             repository('jenkins-pipeline')
+            include('develop release/* feature/*')
         }
     }
 }
