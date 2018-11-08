@@ -46,7 +46,7 @@ pipelineJob("scripted-pipeline-job1") {
     }
 }
 
-multibranchPipelineJob("scripted-multi-pipeline-job-new1") {
+multibranchPipelineJob("scripted-multi-pipeline-job-new2") {
     branchSources {
         github {
             repoOwner('ashwanikumar04')
@@ -69,6 +69,9 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new1") {
             'jenkins.branch.NoTriggerBranchProperty'()
             }
         }
+    }
+    triggers {
+        periodic(24*60)
     }
   }
 }
