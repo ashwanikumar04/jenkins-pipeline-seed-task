@@ -55,6 +55,7 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new2") {
             
         }
     }
+    
     orphanedItemStrategy {
         discardOldItems {
             numToKeep(10)
@@ -63,13 +64,15 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new2") {
     }
 
     configure { project ->
-     project / 'sources' / 'data' / 'jenkins.branch.BranchSource'/ strategy(class: 'jenkins.branch.DefaultBranchPropertyStrategy') {
-        properties(class: 'java.util.Arrays$ArrayList') {
-            a(class: 'jenkins.branch.BranchProperty-array'){
-            'jenkins.branch.NoTriggerBranchProperty'()
+        project / 'sources' / 'data' / 'jenkins.branch.BranchSource'/ strategy(class: 'jenkins.branch.DefaultBranchPropertyStrategy') {
+            properties(class: 'java.util.Arrays$ArrayList') {
+                a(class: 'jenkins.branch.BranchProperty-array'){
+                'jenkins.branch.NoTriggerBranchProperty'()
+                }
             }
         }
     }
+
     triggers {
         periodic(24*60)
     }
