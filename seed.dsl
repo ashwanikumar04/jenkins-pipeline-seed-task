@@ -51,7 +51,7 @@ multibranchPipelineJob("scripted-multi-pipeline-job-new") {
         github {
             repoOwner('ashwanikumar04')
             repository('jenkins-pipeline')
-            include('develop release/* feature/*')
+            includes('develop release/* feature/*')
         }
     }
 }
